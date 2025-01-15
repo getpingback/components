@@ -54,7 +54,7 @@ describe('RangePicker Component', () => {
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
         to: endDate,
-        type: 'custom',
+        type: 'custom'
       });
     });
 
@@ -72,24 +72,16 @@ describe('RangePicker Component', () => {
       fireEvent.click(applyButton);
 
       const todayDate = new Date();
-      const startOfDay = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        todayDate.getDate()
-      );
+      const startOfDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
       startOfDay.setHours(0, 0, 0, 0);
 
-      const endOfDay = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        todayDate.getDate()
-      );
+      const endOfDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
       endOfDay.setHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startOfDay,
         to: endOfDay,
-        type: 'today',
+        type: 'today'
       });
     });
 
@@ -107,30 +99,18 @@ describe('RangePicker Component', () => {
       fireEvent.click(applyButton);
 
       const todayDate = new Date();
-      const yesterdayDate = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        todayDate.getDate() - 1
-      );
+      const yesterdayDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate() - 1);
 
-      const startOfDay = new Date(
-        yesterdayDate.getFullYear(),
-        yesterdayDate.getMonth(),
-        yesterdayDate.getDate()
-      );
+      const startOfDay = new Date(yesterdayDate.getFullYear(), yesterdayDate.getMonth(), yesterdayDate.getDate());
       startOfDay.setHours(0, 0, 0, 0);
 
-      const endOfDay = new Date(
-        yesterdayDate.getFullYear(),
-        yesterdayDate.getMonth(),
-        yesterdayDate.getDate()
-      );
+      const endOfDay = new Date(yesterdayDate.getFullYear(), yesterdayDate.getMonth(), yesterdayDate.getDate());
       endOfDay.setHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startOfDay,
         to: endOfDay,
-        type: 'yesterday',
+        type: 'yesterday'
       });
     });
 
@@ -149,24 +129,16 @@ describe('RangePicker Component', () => {
 
       const todayDate = new Date();
 
-      const startDate = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        1
-      );
+      const startDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1);
       startDate.setHours(0, 0, 0, 0);
 
-      const endDate = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        todayDate.getDate()
-      );
+      const endDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
       endDate.setHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
         to: endDate,
-        type: 'this-month',
+        type: 'this-month'
       });
     });
 
@@ -187,17 +159,13 @@ describe('RangePicker Component', () => {
       const startDate = new Date(todayDate.getFullYear(), 0, 1);
       startDate.setHours(0, 0, 0, 0);
 
-      const endDate = new Date(
-        todayDate.getFullYear(),
-        todayDate.getMonth(),
-        todayDate.getDate()
-      );
+      const endDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), todayDate.getDate());
       endDate.setHours(23, 59, 59, 999);
 
       expect(handleChange).toHaveBeenCalledWith({
         from: startDate,
         to: endDate,
-        type: 'this-year',
+        type: 'this-year'
       });
     });
 
@@ -232,16 +200,14 @@ describe('RangePicker Component', () => {
       expect(handleChange).toHaveBeenCalledWith({
         from: expectedFromDate,
         to: expectedToDate,
-        type: 'custom',
+        type: 'custom'
       });
     });
   });
 
   describe('Single Type', () => {
     test('render open RangerPicker', () => {
-      const { getByTestId } = render(
-        <RangePicker onChange={() => {}} type='single' />
-      );
+      const { getByTestId } = render(<RangePicker onChange={() => {}} type="single" />);
       const rangerPickerTrigger = getByTestId('ranger-trigger');
       fireEvent.click(rangerPickerTrigger);
       const rangerPickerContainer = getByTestId('ranger-content');
@@ -249,9 +215,7 @@ describe('RangePicker Component', () => {
     });
 
     test('should close when the user clicks escape', () => {
-      const { getByTestId } = render(
-        <RangePicker onChange={() => {}} type='single' />
-      );
+      const { getByTestId } = render(<RangePicker onChange={() => {}} type="single" />);
       const rangerPickerTrigger = getByTestId('ranger-trigger');
       fireEvent.click(rangerPickerTrigger);
       const rangerPickerContainer = getByTestId('ranger-content');
@@ -262,9 +226,7 @@ describe('RangePicker Component', () => {
 
     test('should select a date', async () => {
       const handleChange = jest.fn();
-      const { getByTestId } = render(
-        <RangePicker onChange={handleChange} type='single' />
-      );
+      const { getByTestId } = render(<RangePicker onChange={handleChange} type="single" />);
 
       const rangerPickerTrigger = getByTestId('ranger-trigger');
       fireEvent.click(rangerPickerTrigger);

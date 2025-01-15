@@ -138,6 +138,7 @@ const config = {
       boxShadow: {
         'bottom_sheet-2': 'var(--bottom_sheet-2)',
         modal: 'var(--modals-shadow)',
+        'modal-large': 'var(--modals-shadow-large)',
         drawer: 'var(--drawer-shadow)',
         custom: '0px 0px 0px 1px rgba(0,0,0,0.15)',
         solid: 'var(--button-solid-shadow)',
@@ -183,6 +184,22 @@ const config = {
         'fade-in': {
           from: { opacity: 0 },
           to: { opacity: 1 }
+        },
+        'modal-slide-up': {
+          '0%': { transform: 'translateX(-50%) translateY(100%)' },
+          '100%': { transform: 'translateX(-50%) translateY(0)' }
+        },
+        'modal-slide-down': {
+          '0%': { transform: 'translateX(-50%) translateY(0)' },
+          '100%': { transform: 'translateX(-50%) translateY(100%)' }
+        },
+        'modal-fade-in': {
+          '0%': { opacity: '0', transform: 'translate(-50%, -50%) scale(0)' },
+          '100%': { opacity: '1', transform: 'translate(-50%, -50%) scale(1)' }
+        },
+        'modal-fade-out': {
+          '0%': { opacity: '1', transform: 'translate(-50%, -50%) scale(1)' },
+          '100%': { opacity: '0', transform: 'translate(-50%, -50%) scale(0)' }
         }
       },
       animation: {
@@ -192,7 +209,11 @@ const config = {
         'slide-right': 'slideRight 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'drawer-slide-in': 'drawerSlideIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
         'drawer-slide-out': 'drawerSlideOut 300ms cubic-bezier(0.83, 0, 0.17, 1)',
-        'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)'
+        'fade-in': 'fadeIn 300ms cubic-bezier(0.83, 0, 0.17, 1)',
+        'modal-slide-up': 'modal-slide-up 250ms ease-out',
+        'modal-slide-down': 'modal-slide-down 250ms ease-in',
+        'modal-fade-in': 'modal-fade-in 250ms ease-out',
+        'modal-fade-out': 'modal-fade-out 250ms ease-in'
       },
       colors: {
         success: {

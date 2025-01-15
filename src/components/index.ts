@@ -20,6 +20,7 @@ export * from './command';
 export * from './command-cmdk';
 export * from './popover';
 export * from './range-picker';
+export * from './modal';
 export * from './pagination';
 export * from './variable-input';
 export * from './radio-group';
